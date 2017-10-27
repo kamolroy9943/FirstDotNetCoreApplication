@@ -1,6 +1,10 @@
-﻿using FirstDotNetCoreApp.Services;
+﻿using System;
+using FirstDotNetCoreApp.Services;
 using FirstDotNetCoreApp.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using System.Net.Http;
 
 namespace FirstDotNetCoreApp.Controllers
 {
@@ -16,6 +20,7 @@ namespace FirstDotNetCoreApp.Controllers
             _restaurentData = restaurentData;
             _greeter = greeter;
         }
+
         public ViewResult Index()
         {
             var restaurent = new RestaurentViewModel();
@@ -23,5 +28,17 @@ namespace FirstDotNetCoreApp.Controllers
             restaurent.CurrentGreeting =_greeter.GetAllGreetings();
             return View(restaurent);
         }
+
+        public IActionResult Details(int id)
+        {
+            var restaurent = _restaurentData.GetById(id);
+            if (restaurent == null)
+            {
+                return StatusCode(404);
+            }
+            return View(restaurent);
+        }
+
+         
     }
 }
