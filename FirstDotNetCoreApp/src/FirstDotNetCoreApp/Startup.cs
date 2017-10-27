@@ -48,7 +48,7 @@ namespace FirstDotNetCoreApp
 
             //Instead of that two line we can you just one line 
             app.UseFileServer();
-            app.UseMvc(ConfigureRoute);
+            app.UseMvc(ConfigureRoutes);
 
             app.Run(async (context) =>
             {
@@ -59,9 +59,10 @@ namespace FirstDotNetCoreApp
             });
         }
 
-        private void ConfigureRoute(IRouteBuilder route)
+        private void ConfigureRoutes(IRouteBuilder route)
         {
             route.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
         }
     }
 }
+
