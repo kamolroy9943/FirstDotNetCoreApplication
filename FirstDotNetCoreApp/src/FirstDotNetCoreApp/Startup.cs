@@ -40,8 +40,17 @@ namespace FirstDotNetCoreApp
                 app.UseDeveloperExceptionPage();
             }
 
+            // we can use this two line of code.
+            //app.UseDefaultFiles();
+            //app.UseStaticFiles();
+
+            //Instead of that two line we can you just one line 
+            app.UseFileServer();
+
+
             app.Run(async (context) =>
             {
+                throw new System.Exception("error");
                 //var greetings = Configuration["greetings"];
                 var greetings = greeter.GetAllGreetings();
                 await context.Response.WriteAsync(greetings);
