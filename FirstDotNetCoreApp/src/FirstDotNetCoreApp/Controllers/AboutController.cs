@@ -6,16 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FirstDotNetCoreApp.Controllers
 {
-    [Route("About")]
+    [Route("company/[Controller]/[action]")]
     public class AboutController
     {
-        [Route("")]
+       // [Route("")]
         public string Phone()
         {
             return "+88 01762-709943";
         }
 
-        [Route("country")]
+       // [Route("action")]
         public string Country()
         {
             return "Bangladesh";
