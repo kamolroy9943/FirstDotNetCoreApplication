@@ -128,3 +128,4 @@
 --resource:"F:\Cytron Practice\DotNetCore\FirstDotNetCoreApp\src\FirstDotNetCoreApp\obj\Debug\netcoreapp1.0\FirstDotNetCoreAppdotnet-compile.deps.json",FirstDotNetCoreApp.deps.json
 F:\Cytron Practice\DotNetCore\FirstDotNetCoreApp\src\FirstDotNetCoreApp\Program.cs
 F:\Cytron Practice\DotNetCore\FirstDotNetCoreApp\src\FirstDotNetCoreApp\Startup.cs
+F:\Cytron Practice\DotNetCore\FirstDotNetCoreApp\src\FirstDotNetCoreApp\Services\Greeter.cs
