@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FirstDotNetCoreApp.Models
+namespace FirstDotNetCoreApp.Entities
 {
     public class Restaurent
     {
+        
         public int Id { get; set; }
 
         public string Name { get; set; }

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using FirstDotNetCoreApp.Models;
+﻿using System.Collections.Generic;
+using FirstDotNetCoreApp.Entities;
 
 namespace FirstDotNetCoreApp.Services
 {

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FirstDotNetCoreApp.Models.Restaurent>
+﻿@model FirstDotNetCoreApp.ViewModels.RestaurentViewModel
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Welcome!</title>
@@ -6,9 +6,9 @@
 <body>
 <h1>Welcome this is the homepage</h1>
 <div>
- 
+ <h2>@Model.CurrentGreeting</h2>
     <table>
-        @foreach (var re in Model)
+        @foreach (var re in Model.Restaurents)
         {
             <tr>
                 <td>@re.Id</td>
