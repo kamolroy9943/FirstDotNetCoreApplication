@@ -4,15 +4,18 @@
     <title>Welcome!</title>
 </head>
 <body>
-<h1>Welcome this is the homepage</h1>
-<div>
-    <table>
+    <h1>Welcome this is the homepage</h1>
+    <div>
+        <table>
             <tr>
                 <td>@Model.Id</td>
                 <td>@Model.Name</td>
             </tr>
-         
-    </table>
-</div>
+
+        </table>
+        <div>
+            @Html.ActionLink("Home", "Index")          
+        </div>
+    </div>
 </body>
 </html>
