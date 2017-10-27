@@ -6,6 +6,7 @@ using FirstDotNetCoreApp.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -47,15 +48,20 @@ namespace FirstDotNetCoreApp
 
             //Instead of that two line we can you just one line 
             app.UseFileServer();
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc(ConfigureRoute);
 
             app.Run(async (context) =>
             {
-                throw new System.Exception("error");
+               // throw new System.Exception("error");
                 //var greetings = Configuration["greetings"];
                 var greetings = greeter.GetAllGreetings();
                 await context.Response.WriteAsync(greetings);
             });
+        }
+
+        private void ConfigureRoute(IRouteBuilder route)
+        {
+            route.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
         }
     }
 }
