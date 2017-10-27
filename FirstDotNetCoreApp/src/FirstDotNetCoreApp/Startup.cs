@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FirstDotNetCoreApp.Models;
 using FirstDotNetCoreApp.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,6 +31,7 @@ namespace FirstDotNetCoreApp
             services.AddMvc();
             services.AddSingleton(provider => Configuration);
             services.AddSingleton<IGreeter, Greeter>();
+            services.AddSingleton<IRestaurentData, RestaurentData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

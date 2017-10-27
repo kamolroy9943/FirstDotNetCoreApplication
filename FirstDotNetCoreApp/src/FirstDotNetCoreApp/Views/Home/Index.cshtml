@@ -1,5 +1,4 @@
-﻿@model FirstDotNetCoreApp.Models.Restaurent
-
+﻿@model IEnumerable<FirstDotNetCoreApp.Models.Restaurent>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Welcome!</title>
@@ -7,7 +6,17 @@
 <body>
 <h1>Welcome this is the homepage</h1>
 <div>
-    @Model.Name
+ 
+    <table>
+        @foreach (var re in Model)
+        {
+            <tr>
+                <td>@re.Id</td>
+                <td>@re.Name</td>
+            </tr>
+
+        }
+    </table>
 </div>
 </body>
 </html>
