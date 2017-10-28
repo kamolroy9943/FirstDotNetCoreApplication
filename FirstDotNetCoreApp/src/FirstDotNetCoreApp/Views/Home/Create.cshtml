@@ -1,0 +1,22 @@
+﻿@using FirstDotNetCoreApp.Entities
+@model FirstDotNetCoreApp.Entities.Restaurent
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Welcome!</title>
+</head>
+<body>
+    <h1>Create</h1>
+    @using (Html.BeginForm())
+    {
+        <div>
+            @Html.LabelFor(x=>x.Name)
+            @Html.TextBoxFor(x=>x.Name)
+        </div>
+        <div>
+            @Html.LabelFor(x => x.Type)
+            @Html.DropDownListFor(x=>x.Type,Html.GetEnumSelectList(typeof(Types)))
+        </div>
+        <div><input type="submit" value="Save"/></div>
+    }
+</body>
+</html>

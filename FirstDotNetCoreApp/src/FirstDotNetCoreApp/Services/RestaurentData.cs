@@ -8,13 +8,14 @@ namespace FirstDotNetCoreApp.Services
     {
         IEnumerable<Restaurent> GetAll();
         Restaurent GetById(int id);
+        void Add(Restaurent aRestaurent);
     }
     
     public class RestaurentData:IRestaurentData
     {
-        private List<Restaurent> _restaurents;
+        static List<Restaurent> _restaurents;
 
-        public RestaurentData()
+        static RestaurentData()
         {
             _restaurents = new List<Restaurent>
             {
@@ -33,6 +34,12 @@ namespace FirstDotNetCoreApp.Services
         public Restaurent GetById(int id)
         {
             return _restaurents.FirstOrDefault(p => p.Id == id);
+        }
+
+        public void Add(Restaurent aRestaurent)
+        {
+            aRestaurent.Id = _restaurents.Max(x => x.Id)+1;
+            _restaurents.Add(aRestaurent);
         }
     }
 }

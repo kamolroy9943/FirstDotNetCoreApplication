@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using System.Net.Http;
+using FirstDotNetCoreApp.Entities;
 
 namespace FirstDotNetCoreApp.Controllers
 {
@@ -27,6 +28,21 @@ namespace FirstDotNetCoreApp.Controllers
             restaurent.Restaurents = _restaurentData.GetAll();
             restaurent.CurrentGreeting =_greeter.GetAllGreetings();
             return View(restaurent);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(EditRestaurentViewModel restaurent)
+        {
+            Restaurent aRestaurent=new Restaurent();
+            aRestaurent.Name = restaurent.Name;
+            aRestaurent.Type = restaurent.Type;
+
+            _restaurentData.Add(aRestaurent);
+            return View("Details",aRestaurent);
         }
 
         public IActionResult Details(int id)
