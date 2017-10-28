@@ -42,7 +42,7 @@ namespace FirstDotNetCoreApp.Controllers
             aRestaurent.Type = restaurent.Type;
 
             _restaurentData.Add(aRestaurent);
-            return View("Details",aRestaurent);
+            return RedirectToAction("Details",new {id=aRestaurent.Id});
         }
 
         public IActionResult Details(int id)
