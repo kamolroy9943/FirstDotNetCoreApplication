@@ -37,12 +37,18 @@ namespace FirstDotNetCoreApp.Controllers
         [HttpPost]
         public IActionResult Create(EditRestaurentViewModel restaurent)
         {
-            Restaurent aRestaurent=new Restaurent();
-            aRestaurent.Name = restaurent.Name;
-            aRestaurent.Type = restaurent.Type;
+            if (ModelState.IsValid)
+            {
 
-            _restaurentData.Add(aRestaurent);
-            return RedirectToAction("Details",new {id=aRestaurent.Id});
+
+                Restaurent aRestaurent = new Restaurent();
+                aRestaurent.Name = restaurent.Name;
+                aRestaurent.Type = restaurent.Type;
+
+                _restaurentData.Add(aRestaurent);
+                return RedirectToAction("Details", new {id = aRestaurent.Id});
+            }
+            return View();
         }
 
         public IActionResult Details(int id)

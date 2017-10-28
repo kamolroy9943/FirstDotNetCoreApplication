@@ -11,10 +11,12 @@
         <div>
             @Html.LabelFor(x=>x.Name)
             @Html.TextBoxFor(x=>x.Name)
+            @Html.ValidationMessageFor(x=>x.Name)
         </div>
         <div>
             @Html.LabelFor(x => x.Type)
             @Html.DropDownListFor(x=>x.Type,Html.GetEnumSelectList(typeof(Types)))
+            @Html.ValidationMessageFor(x=>x.Type)
         </div>
         <div><input type="submit" value="Save"/></div>
     }
