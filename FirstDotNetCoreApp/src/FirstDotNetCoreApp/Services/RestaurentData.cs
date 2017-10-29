@@ -10,7 +10,45 @@ namespace FirstDotNetCoreApp.Services
         Restaurent GetById(int id);
         void Add(Restaurent aRestaurent);
     }
-    
+
+
+
+
+
+
+
+    public class SqlData:IRestaurentData
+    {
+        protected OTodoFoodDbContext context;
+
+        public SqlData(OTodoFoodDbContext context)
+        {
+            this.context = context;
+        }
+
+        public IEnumerable<Restaurent> GetAll()
+        {
+            return context.Restaurents.ToList();
+        }
+
+        public Restaurent GetById(int id)
+        {
+            return context.Restaurents.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void Add(Restaurent aRestaurent)
+        {
+            context.Restaurents.Add(aRestaurent);
+            context.SaveChanges();
+        }
+    }
+
+
+
+
+
+
+
     public class RestaurentData:IRestaurentData
     {
         static List<Restaurent> _restaurents;

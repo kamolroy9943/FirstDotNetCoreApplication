@@ -1,8 +1,11 @@
-﻿using FirstDotNetCoreApp.Services;
+﻿using FirstDotNetCoreApp.Entities;
+using FirstDotNetCoreApp.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -24,9 +27,11 @@ namespace FirstDotNetCoreApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddEntityFramework()
+                    .AddDbContext<OTodoFoodDbContext>(option=>option.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
             services.AddSingleton(provider => Configuration);
             services.AddSingleton<IGreeter, Greeter>();
-            services.AddSingleton<IRestaurentData, RestaurentData>();
+            services.AddSingleton<IRestaurentData, SqlData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
