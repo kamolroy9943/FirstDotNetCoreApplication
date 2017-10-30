@@ -8,6 +8,7 @@ namespace FirstDotNetCoreApp.Entities
 {
     public class OTodoFoodDbContext:DbContext
     {
+         
         public OTodoFoodDbContext(DbContextOptions options):base(options)
         {
             
